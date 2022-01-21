@@ -74,12 +74,20 @@ h2 {
 		<div class="half container-centered-text">
 			<h2><?php echo $DIRECTION[$i]; ?></h2>
 <?php
-			for ($j = 0; $j < sizeOf($options[$i]); $j++) {
+			for ($j = 0; $hasData && $j < sizeOf($options[$i]); $j++) {
 ?>
 				<div class="container" style="background-color: #<?php echo $LINEBGCOLORS[$options[$i][$j]['line']]; ?>;">
 					<span class="accessibility" style="background-color: #<?php echo $LINEBGCOLORS[$options[$i][$j]['line']]; ?>; color: #<?php echo $LINETXCOLORS[$options[$i][$j]['line']]; ?>;"><?php echo $options[$i][$j]['line']; ?></span>
 					<span class="destination" style="background-color: #<?php echo $LINEBGCOLORS[$options[$i][$j]['line']]; ?>; color: #<?php echo $LINETXCOLORS[$options[$i][$j]['line']]; ?>;"><?php echo $options[$i][$j]['dest']; ?></span>
 					<span class="time" style="background-color: #<?php echo $LINEBGCOLORS[$options[$i][$j]['line']]; ?>; color: #<?php echo $LINETXCOLORS[$options[$i][$j]['line']]; ?>;"><?php echo prettifyTime($options[$i][$j]['time']); ?></span>
+				</div>
+<?php
+			}
+
+			if (!$hasData) {
+?>
+				<div class="conatiner">
+					No Data
 				</div>
 <?php
 			}

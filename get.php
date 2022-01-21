@@ -20,13 +20,14 @@ curl_close($ch);
 
 $data = json_decode($result);
 
-// echo print_r($data, true)."\n";
-
+//echo print_r($data, true)."\n";
 
 $trains = $data->Trains;
+$hasData = (array)$trains;
+
 $options = Array();
 
-for ($i = 0; $i < sizeOf($trains); $i++) {
+for ($i = 0; $hasData && $i < sizeOf($trains); $i++) {
 	if (!$options[$trains[$i]->Group]) {
 		$options[$trains[$i]->Group] = Array();
 	}
@@ -37,6 +38,6 @@ for ($i = 0; $i < sizeOf($trains); $i++) {
 	array_push($options[$trains[$i]->Group], $optionData);
 }
 
-// echo print_r($options, true)."\n";
+//echo print_r($options, true)."\n";
 ?>
 
