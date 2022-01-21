@@ -39,5 +39,10 @@ for ($i = 0; $hasData && $i < sizeOf($trains); $i++) {
 }
 
 //echo print_r($options, true)."\n";
+
+$fout = "current.dat";
+$outfile = fopen($fout, "w");
+fwrite($outfile, json_encode($options));
+fclose($outfile);
 ?>
 
